@@ -196,6 +196,20 @@
                 </div>
                 
                 <div class="mb-6">
+                    <label for="device" class="block text-slate-300 mb-2 font-medium">Em qual aparelho você irá utilizar?*</label>
+                    <select id="device" name="device" required
+                            class="w-full px-4 py-3 rounded-lg bg-slate-600 text-white form-input focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <option value="" disabled selected>Selecione o aparelho</option>
+                        <option value="TV Smart">TV Smart</option>
+                        <option value="TV Smart Android">TV Smart Android</option>
+                        <option value="Celular">Celular</option>
+                        <option value="TV Box">TV Box</option>
+                        <option value="Fire Stick">Fire Stick</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="mb-6">
                     <p class="block text-slate-300 mb-2 font-medium">Você já assina algum serviço de IPTV atualmente?*</p>
                     <div class="flex space-x-4">
                         <label class="inline-flex items-center">
@@ -356,7 +370,7 @@
             
             // Validar campos obrigatórios
             if (!formData.get('name') || !formData.get('phone') || !formData.get('email') || 
-                !formData.get('currentUser') || !formData.get('indicated') || !formData.get('needHelp')) {
+                !formData.get('device') || !formData.get('currentUser') || !formData.get('indicated') || !formData.get('needHelp')) {
                 alert('Por favor, preencha todos os campos obrigatórios.');
                 return;
             }
@@ -367,7 +381,8 @@
             message += `*Dados do Cliente:*\n`;
             message += `- Nome: ${formData.get('name')}\n`;
             message += `- Telefone: ${formData.get('phone')}\n`;
-            message += `- Email: ${formData.get('email')}\n\n`;
+            message += `- Email: ${formData.get('email')}\n`;
+            message += `- Aparelho que será utilizado: ${formData.get('device')}\n\n`;
             message += `*Informações Adicionais:*\n`;
             message += `- Já assina IPTV? ${formData.get('currentUser')}\n`;
             
